@@ -13,5 +13,6 @@ def read_kafka_stream(spark):
         .option("subscribe", TOPIC)
         .option("startingOffsets", "earliest")
         .option("maxOffsetsPerTrigger", 100)
+        .option("failOnDataLoss", "false")
         .load()
     )
